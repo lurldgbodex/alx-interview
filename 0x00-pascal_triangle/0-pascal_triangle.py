@@ -7,7 +7,7 @@ def pascal_triangle(n):
     triangle of n'''
     pasc_list = []
     if n <= 0:
-        return pascal_list
+        return pasc_list
     for i in range(n):
         triangle = []
         for j in range(i + 1):
