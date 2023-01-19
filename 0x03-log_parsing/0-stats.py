@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+'''a script that reads stdin line by line and computes metrics'''
 import sys
 import re
 
@@ -30,6 +30,7 @@ status_codes = {
 
 
 def log_parse(status_codes, total_size):
+    ''''prints the status_code and size'''
     print('File size: {:d}'.format(total_size))
     for status in sorted(status_codes):
         if status_codes[status] != 0:
