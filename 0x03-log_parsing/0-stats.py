@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''a script that reads stdin line by line and computes metrics'''
 import sys
-import re
 
 
 total_size = 0
@@ -51,6 +50,7 @@ try:
         # print stats every 10 lines or keyboard interruption
         if count % 10 == 0:
             log_parse(status_codes, total_size)
+    log_parse(status_codes, total_size)
 
 except keyboardInterrupt:
     # print final stats
