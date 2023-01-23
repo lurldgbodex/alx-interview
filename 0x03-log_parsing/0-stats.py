@@ -28,6 +28,9 @@ def log_parse(status_codes, total_size):
 
 try:
     for line in sys.stdin:
+        # print stats every 10 lines or keyboard interruption
+        if count != 0 and count % 10 == 0:
+            log_parse(status_codes, total_size)
         params = line.strip().split()
         if len(params) != 9:
             continue
@@ -47,9 +50,6 @@ try:
         total_size += file_size
         count += 1
 
-        # print stats every 10 lines or keyboard interruption
-        if count % 10 == 0:
-            log_parse(status_codes, total_size)
     log_parse(status_codes, total_size)
 
 except keyboardInterrupt:
