@@ -7,14 +7,16 @@ def makeChange(coins, total):
     amount of total from a given pile of coins of different value'''
     if total <= 0:
         return 0
-    add_coins = 0
     count = 0
-    while add_coins <= total:
-        if max(coins) > total or (max(coins) + add_coins) > total:
-            coins.pop(coins.index(max(coins)))
-        largest_coin = max(coins)
-        add_coins += largest_coin
-        count += 1
-        if add_coins == total:
-            return count
-    return -1
+    index = 0
+    coin_length = len(coins)
+    sort_coin = sorted(coins, reverse=True)
+    while total > 0:
+        if index >= coin_length:
+            return -1
+        if total - sort_coin[index] >= 0:
+            total -= sort_coin[index]
+            count += 1
+        else:
+            index += 1
+    return count
